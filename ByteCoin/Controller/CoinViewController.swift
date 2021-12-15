@@ -9,13 +9,13 @@
 import UIKit
 
 
-class CoinViewController: UIViewController {
+final class CoinViewController: UIViewController {
 
-    @IBOutlet weak var currencyLabel: UILabel!
-    @IBOutlet weak var bitcoinLabel: UILabel!
-    @IBOutlet weak var currencyPicker: UIPickerView!
+    @IBOutlet private weak var currencyLabel: UILabel!
+    @IBOutlet private weak var bitcoinLabel: UILabel!
+    @IBOutlet private weak var currencyPicker: UIPickerView!
     
-    var coinManager = CoinManager()
+    private var coinManager = CoinManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()

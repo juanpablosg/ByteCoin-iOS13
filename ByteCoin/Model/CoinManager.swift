@@ -17,8 +17,8 @@ struct CoinManager {
     
     var delegate: CoinManagerDelegate?
     
-    let baseURL = "https://rest.coinapi.io/v1/exchangerate/BTC"
-    let apiKey = "7607C660-8704-4B8E-BF93-F918493C5912"
+    private let baseURL = "https://rest.coinapi.io/v1/exchangerate/BTC"
+    private let apiKey = "7607C660-8704-4B8E-BF93-F918493C5912"
     
     let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
     
@@ -28,7 +28,7 @@ struct CoinManager {
     }
     
     
-    func performRequest(with URLString: String, currency: String) {
+    private func performRequest(with URLString: String, currency: String) {
         // 1. Create a URL
         guard let url = URL(string: URLString) else { return }
         // 2. Create a URL session.
@@ -55,7 +55,7 @@ struct CoinManager {
         
     }
     
-    func parseJSON(_ data: Data) -> Double? {
+    private func parseJSON(_ data: Data) -> Double? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(CoinModel.self, from: data)
